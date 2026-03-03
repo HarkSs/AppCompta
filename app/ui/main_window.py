@@ -49,7 +49,7 @@ class MainWindow(QMainWindow):
 
         self.stack = QStackedWidget()
         self.dashboard = DashboardView(self.report_service)
-        self.transactions = TransactionsView(self.tx_service, self.category_service)
+        self.transactions = TransactionsView(self.tx_service, self.category_service, self.settings_service)
         self.invoices = InvoicesView()
         self.reports = ReportsView(self.report_service)
         self.settings = SettingsView(self.settings_service, self.backup_service)
