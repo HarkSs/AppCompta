@@ -26,6 +26,7 @@ Le binaire `MaCompta.exe` est produit dans le dossier `dist/`. L'application con
 ## Fonctionnalités principales
 
 - Gestion des transactions (recettes/dépenses) avec catégories personnalisables
+- UI compacte: filtres persistants par période/catégorie, tri des colonnes et raccourcis clavier (Ctrl+N, Ctrl+F, Suppr)
 - Import CSV bancaire avec mapping des colonnes
 - Exports CSV et génération du livre des recettes en PDF simple
 - Rapports basiques (totaux par période, par catégorie)

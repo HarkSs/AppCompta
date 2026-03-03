@@ -4,7 +4,7 @@ from __future__ import annotations
 import logging
 from dataclasses import asdict
 from decimal import Decimal
-from typing import Iterable, List, Optional
+from typing import Iterable, List
 
 from app.db.database import Database
 from app.models.entities import Transaction
@@ -18,16 +18,45 @@ class TransactionService:
     def __init__(self, db: Database) -> None:
         self.db = db
 
-    def list_transactions(self, limit: int = 200, offset: int = 0) -> List[Transaction]:
+    def list_transactions(
+        self,
+        limit: int = 200,
+        offset: int = 0,
+        start_date: str | None = None,
+        end_date: str | None = None,
+        category_id: int | None = None,
+        search: str | None = None,
+    ) -> List[Transaction]:
+        conditions: list[str] = []
+        params: list[object] = []
+        if start_date:
+            conditions.append("date >= ?")
+            params.append(start_date)
+        if end_date:
+            conditions.append("date <= ?")
+            params.append(end_date)
+        if category_id is not None:
+            conditions.append("category_id = ?")
+            params.append(category_id)
+        if search:
+            conditions.append("(label LIKE ? OR note LIKE ? OR payment_method LIKE ?)")
+            like_value = f"%{search}%"
+            params.extend([like_value, like_value, like_value])
+
+        where_clause = ""
+        if conditions:
+            where_clause = "WHERE " + " AND ".join(conditions)
+
         rows = self.db.query(
-            """
+            f"""
             SELECT id, date, label, amount, category_id, counterparty_id, payment_method,
                    note, attachment, reconciled, external_ref
             FROM transactions
+            {where_clause}
             ORDER BY date DESC, id DESC
             LIMIT ? OFFSET ?
             """,
-            (limit, offset),
+            tuple([*params, limit, offset]),
         )
         return [self._row_to_transaction(row) for row in rows]
 
