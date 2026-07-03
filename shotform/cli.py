@@ -47,6 +47,11 @@ def build_parser() -> argparse.ArgumentParser:
     p_ref.add_argument("--out", default=None, help="Chemin de sortie du reference.json.")
     p_ref.add_argument("--model", choices=["heavy", "full"], default="heavy")
     p_ref.add_argument("--model-path", default=None)
+    p_ref.add_argument(
+        "--exclude", nargs="*", default=[],
+        help="Métriques à exclure du référentiel (ex. crouch_to_release_time "
+             "jump_symmetry pour des clips en ralenti).",
+    )
     return parser
 
 
@@ -109,6 +114,7 @@ def cmd_build_reference(args: argparse.Namespace) -> int:
         review=args.review,
         model_variant=args.model,
         model_path=args.model_path,
+        exclude=set(args.exclude),
     )
     return 0
 

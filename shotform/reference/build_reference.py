@@ -49,8 +49,14 @@ def build_reference(
     review: bool = False,
     model_variant: str = "heavy",
     model_path: str | None = None,
+    exclude: set[str] | None = None,
 ) -> dict:
-    """Analyse tous les clips du dossier et écrit reference.json."""
+    """Analyse tous les clips du dossier et écrit reference.json.
+
+    `exclude` : métriques à ne PAS mettre dans le référentiel (ex. les
+    métriques de timing quand les clips sources sont des ralentis).
+    """
+    exclude = set(exclude or ())
     from ..analyze import analyze_video  # import ici pour rester léger en test
 
     clips_dir = Path(clips_dir)
@@ -85,6 +91,8 @@ def build_reference(
         used, skipped = [], []
         for name, metric in analysis.metrics.items():
             units[name] = metric.unit
+            if name in exclude:
+                continue
             conf = analysis.quality.per_metric[name]
             if conf.reliable and np.isfinite(metric.value):
                 samples[name].append(float(metric.value))
@@ -115,6 +123,7 @@ def build_reference(
     reference = {
         "type": "pro",
         "description": "Référentiel construit à partir de clips de shooters d'élite.",
+        "excluded_metrics": sorted(exclude),
         "clips": clip_reports,
         "metrics": aggregate_samples(samples, units),
     }
