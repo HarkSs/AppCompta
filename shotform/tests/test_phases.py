@@ -74,6 +74,28 @@ class TestDetectFromSignals:
         with pytest.raises(ValueError, match="court"):
             detect_phases_from_signals(short)
 
+    def test_crouch_search_bounded_to_release_window(self):
+        # Une flexion très profonde 3 s avant la release (ramassage de ballon)
+        # ne doit PAS être prise pour la crouch du tir.
+        sig = make_signals(
+            duration=6.0,
+            wrist_keys=[(0, 0.3), (3.3, 0.3), (4.0, 0.9), (4.6, 0.4), (6.0, 0.4)],
+        )
+        t = sig.t
+        from .conftest import keyframes
+        sig.knee_angle = keyframes(
+            t, [(0, 170), (0.8, 170), (1.0, 70), (1.4, 170),   # ramassage profond
+                (3.3, 170), (3.6, 115), (4.0, 175), (6.0, 175)]  # vraie crouch
+        )
+        sig.hip_height = keyframes(
+            t, [(0, 0.5), (3.3, 0.5), (3.6, 0.4), (4.0, 0.55), (4.4, 0.6), (6.0, 0.5)]
+        )
+        sig.elbow_angle = keyframes(t, [(0, 70), (3.6, 70), (4.0, 170), (6.0, 100)])
+        sig.ankle_height = keyframes(t, [(0, 0.05), (3.9, 0.05), (4.2, 0.25), (4.6, 0.05), (6.0, 0.05)])
+        phases = detect_phases_from_signals(sig)
+        assert phases.release == pytest.approx(120, abs=4)   # t = 4.0 s
+        assert phases.crouch == pytest.approx(108, abs=4)    # t = 3.6 s, pas 1.0 s
+
     def test_no_jump_flagged(self):
         sig = make_signals()
         sig.ankle_height[:] = 0.05  # aucun décollage

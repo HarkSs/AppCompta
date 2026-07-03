@@ -86,7 +86,7 @@ def detect_phases_from_signals(sig: PhaseSignals) -> Phases:
     fps = 1.0 / float(np.median(np.diff(sig.t))) if n > 1 else 30.0
 
     release = _detect_release(sig, fps, warnings)
-    crouch = _detect_crouch(sig, release, warnings)
+    crouch = _detect_crouch(sig, release, fps, warnings)
     stance = _detect_stance(sig, crouch, fps)
     jump_peak, landing = _detect_landing(sig, release, crouch, fps, warnings)
 
@@ -145,13 +145,22 @@ def _detect_release(sig: PhaseSignals, fps: float, warnings: list[str]) -> int:
     return lo + int(np.argmax(score))
 
 
-def _detect_crouch(sig: PhaseSignals, release: int, warnings: list[str]) -> int:
-    """Crouch = flexion maximale des genoux (minimum de l'angle) avant la release."""
-    segment = sig.knee_angle[:release]
+CROUCH_WINDOW_S = 1.5  # la crouch d'un tir précède la release de ~0.3-0.8 s
+
+
+def _detect_crouch(sig: PhaseSignals, release: int, fps: float, warnings: list[str]) -> int:
+    """Crouch = flexion maximale des genoux (minimum de l'angle) avant la release.
+
+    La recherche est bornée à CROUCH_WINDOW_S avant la release : plus tôt
+    dans le clip, une flexion profonde est en général un ramassage de ballon
+    ou un dribble bas, pas la préparation du tir.
+    """
+    lo = max(0, release - int(round(CROUCH_WINDOW_S * fps)))
+    segment = sig.knee_angle[lo:release]
     if len(segment) == 0 or np.all(np.isnan(segment)):
         warnings.append("Flexion des genoux introuvable avant la release.")
         return max(0, release - 1)
-    return int(np.nanargmin(segment))
+    return lo + int(np.nanargmin(segment))
 
 
 def _detect_stance(sig: PhaseSignals, crouch: int, fps: float) -> int:
