@@ -6,13 +6,3 @@ build/
 *.spec
 logs/app.log
 Documents/
-
-# ShotForm
-shotform/models/*.task
-report/
-demo_report/
-pro_clips/
-pro_clips_curated/
-pro_clips/
-workout_shots/
-demo_final/
