@@ -15,6 +15,8 @@ from pathlib import Path
 
 import numpy as np
 
+from ..pipeline.video_io import finalize_mp4
+
 # Seuil de distance d'histogramme au-delà duquel on considère un changement de plan.
 CUT_THRESHOLD = 0.5
 # Durées de segment conservées (les ralentis peuvent étirer un tir jusqu'à ~30 s).
@@ -104,6 +106,7 @@ def split(
         if i == b - 1 and writer is not None:
             writer.release()
             writer = None
+            finalize_mp4(written[-1])
             current = next(seg_iter, None)
         i += 1
     if writer is not None:

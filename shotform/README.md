@@ -22,10 +22,17 @@ python -m shotform analyze video.mp4 --side right --out report/
 # -> report/report.json, report/summary.txt, report/annotated.mp4
 
 # Construire le référentiel pro depuis un dossier de clips (Curry, Booker…)
-python -m shotform build-reference pro_clips/ --review
+python -m shotform build-reference pro_clips/ --review --side right
 # -> shotform/reference/reference.json
 # --review génère pro_clips/review/<clip>_annotated.mp4 pour CHAQUE clip :
 #    vérifiez visuellement squelette + phases avant d'adopter le référentiel.
+# --side right : écarte les clips où le tireur détecté est du côté opposé
+#    (typiquement une autre personne dans le champ).
+# --exclude crouch_to_release_time : à utiliser si les clips sont en ralenti.
+
+# Préparer les clips depuis des vidéos brutes :
+python -m shotform.scripts.split_clips compilation.mp4 pro_clips/   # compilation avec changements de plan
+python -m shotform.scripts.split_shots seance.mp4 pro_clips/        # plan-séquence d'entraînement (1 clip par tir)
 
 # Démo pas-à-pas de bout en bout
 python -m shotform.scripts.demo chemin/vers/tir.mp4 right
@@ -36,7 +43,19 @@ python -m shotform analyze video.mp4 --model full
 
 Tant que `reference.json` n'existe pas, l'analyse utilise
 `reference_fallback.json` (repères de coaching génériques), clairement marqué
-« référentiel de repli » dans les rapports.
+« référentiel de repli » dans les rapports. Quand le référentiel pro existe
+mais qu'une métrique manque d'échantillons (n < 5), la plage de repli est
+utilisée pour cette métrique et signalée « (plage de repli) » dans le conseil.
+
+Le `reference.json` fourni a été construit sur 37 tirs d'entraînement de
+Stephen Curry (vidéos à vitesse réelle) ; chaque clip est passé par un
+garde-fou de plausibilité (poignet au-dessus de la tête et avant-bras vers le
+haut à la release) qui écarte les détections accrochées sur un dribble, une
+passe ou une autre personne.
+
+Note vidéos : si `ffmpeg` est présent sur la machine, les vidéos produites
+(annotées, clips découpés) sont automatiquement réencodées en H.264, lisible
+dans les navigateurs ; sinon elles restent en MPEG-4 « mp4v » (VLC les lit).
 
 ## Comment ça marche
 

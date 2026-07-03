@@ -16,6 +16,7 @@ import numpy as np
 
 from .. import landmarks as lm
 from ..pipeline.extractor import extract
+from ..pipeline.video_io import finalize_mp4
 
 # Fenêtre écrite autour de chaque pic de poignet (secondes).
 PRE_S = 2.0
@@ -101,7 +102,7 @@ def split_by_shots(
                 break
             writer.write(frame)
         writer.release()
-        written.append(path)
+        written.append(finalize_mp4(path))
     cap.release()
 
     print(f"{video_path.name} : {len(peaks)} tirs détectés -> {len(written)} clips dans {out_dir}")

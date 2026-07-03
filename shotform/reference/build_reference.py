@@ -69,11 +69,15 @@ def build_reference(
     model_variant: str = "heavy",
     model_path: str | None = None,
     exclude: set[str] | None = None,
+    side: str | None = None,
 ) -> dict:
     """Analyse tous les clips du dossier et écrit reference.json.
 
     `exclude` : métriques à ne PAS mettre dans le référentiel (ex. les
     métriques de timing quand les clips sources sont des ralentis).
+    `side` : côté de tir attendu ("right"/"left") quand tous les clips
+    montrent le même tireur — un clip détecté du côté opposé est alors
+    probablement une autre personne (rebondeur, coach) et est écarté.
     """
     exclude = set(exclude or ())
     from ..analyze import analyze_video  # import ici pour rester léger en test
@@ -107,6 +111,16 @@ def build_reference(
             clip_reports.append({"clip": clip.name, "status": "erreur", "error": str(exc)})
             continue
 
+        if side is not None and analysis.shooting_side != side:
+            print(f"  clip écarté : côté détecté {analysis.shooting_side} != {side} attendu")
+            clip_reports.append({
+                "clip": clip.name,
+                "status": "côté inattendu",
+                "shooting_side": analysis.shooting_side,
+                "orientation": analysis.quality.orientation,
+            })
+            continue
+
         implausible = shot_plausibility_issues(analysis)
         used, skipped = [], []
         for name, metric in analysis.metrics.items():
@@ -127,6 +141,11 @@ def build_reference(
             "orientation": analysis.quality.orientation,
             "metrics_used": used,
             "metrics_skipped": skipped,
+            "metrics_values": {
+                name: round(m.value, 2)
+                for name, m in analysis.metrics.items()
+                if np.isfinite(m.value)
+            },
             "warnings": analysis.warnings,
         })
         if implausible:

@@ -13,6 +13,7 @@ from .. import landmarks as lm
 from .angles import angle_deg_series
 from .extractor import PoseSequence
 from .phases import Phases
+from .video_io import finalize_mp4
 
 # Couleurs BGR
 _SKELETON = (0, 200, 255)
@@ -97,7 +98,7 @@ def annotate_video(
 
     cap.release()
     writer.release()
-    return out_path
+    return finalize_mp4(out_path)
 
 
 def _draw_skeleton(cv2, frame, image_lms: np.ndarray, width: int, height: int) -> None:

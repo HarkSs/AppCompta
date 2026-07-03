@@ -52,6 +52,11 @@ def build_parser() -> argparse.ArgumentParser:
         help="Métriques à exclure du référentiel (ex. crouch_to_release_time "
              "jump_symmetry pour des clips en ralenti).",
     )
+    p_ref.add_argument(
+        "--side", choices=["right", "left"], default=None,
+        help="Côté de tir attendu : les clips détectés du côté opposé "
+             "(probablement une autre personne) sont écartés.",
+    )
     return parser
 
 
@@ -115,6 +120,7 @@ def cmd_build_reference(args: argparse.Namespace) -> int:
         model_variant=args.model,
         model_path=args.model_path,
         exclude=set(args.exclude),
+        side=args.side,
     )
     return 0
 
