@@ -12,3 +12,4 @@ shotform/models/*.task
 report/
 demo_report/
 pro_clips/
+pro_clips_curated/

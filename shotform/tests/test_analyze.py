@@ -4,12 +4,13 @@ from __future__ import annotations
 import json
 
 from shotform.analyze import analyze_sequence
+from shotform.verdict.rules import FALLBACK_PATH
 
 
 class TestAnalyzeSequence:
     def test_end_to_end_report(self, shot_sequence):
         seq, truth = shot_sequence
-        analysis = analyze_sequence(seq, shooting_side="right")
+        analysis = analyze_sequence(seq, shooting_side="right", reference_path=FALLBACK_PATH)
 
         assert analysis.shooting_side == "right"
         assert analysis.side_source == "user"

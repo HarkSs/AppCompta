@@ -22,6 +22,9 @@ def _metric(name: str, value: float, unit: str = "°", phase: str = "release") -
     return Metric(name, value, unit, phase, METRIC_LABELS[name])
 
 
+FALLBACK_REF = json.loads(FALLBACK_PATH.read_text(encoding="utf-8"))
+
+
 def _confidences(names, reliable=True, reasons=None):
     return {
         n: MetricConfidence(confidence=0.9 if reliable else 0.2,
@@ -55,12 +58,12 @@ class TestMetricScore:
 
 class TestEvaluate:
     def test_fallback_reference_loaded_and_flagged(self):
-        ref = load_reference()
+        ref = load_reference(FALLBACK_PATH)
         assert FALLBACK_PATH.is_file()
         assert ref["type"] == "fallback"
 
         metrics = {"elbow_angle": _metric("elbow_angle", 93.0)}
-        verdict = evaluate(metrics, _confidences(["elbow_angle"]))
+        verdict = evaluate(metrics, _confidences(["elbow_angle"]), reference=FALLBACK_REF)
         assert verdict.reference_type == "fallback"
         assert any("repli" in n for n in verdict.notices)
         assert verdict.items[0].status == "bon"
@@ -68,7 +71,7 @@ class TestEvaluate:
 
     def test_bad_elbow_gets_french_advice_with_numbers(self):
         metrics = {"elbow_angle": _metric("elbow_angle", 112.0)}
-        verdict = evaluate(metrics, _confidences(["elbow_angle"]))
+        verdict = evaluate(metrics, _confidences(["elbow_angle"]), reference=FALLBACK_REF)
         item = verdict.items[0]
         assert item.status == "a_corriger"
         assert "112°" in item.message
@@ -82,7 +85,7 @@ class TestEvaluate:
         }
         conf = _confidences(["elbow_angle"])
         conf.update(_confidences(["jump_symmetry"], reliable=False, reasons=["bras masqué"]))
-        verdict = evaluate(metrics, conf)
+        verdict = evaluate(metrics, conf, reference=FALLBACK_REF)
         assert "jump_symmetry" in verdict.excluded
         # jump_symmetry (0.5, très mauvais) exclu -> score reste 100.
         assert verdict.score == 100.0
@@ -96,7 +99,7 @@ class TestEvaluate:
             "elbow_angle": _metric("elbow_angle", 93.0),
             "jump_symmetry": _metric("jump_symmetry", 5.0, unit="×tronc", phase="timing"),
         }
-        verdict = evaluate(metrics, _confidences(metrics.keys()))
+        verdict = evaluate(metrics, _confidences(metrics.keys()), reference=FALLBACK_REF)
         expected = (WEIGHTS["elbow_angle"] * 100.0) / (
             WEIGHTS["elbow_angle"] + WEIGHTS["jump_symmetry"]
         )
@@ -104,7 +107,7 @@ class TestEvaluate:
 
     def test_no_reliable_metric_no_score(self):
         metrics = {"elbow_angle": _metric("elbow_angle", 93.0)}
-        verdict = evaluate(metrics, _confidences(["elbow_angle"], reliable=False))
+        verdict = evaluate(metrics, _confidences(["elbow_angle"], reliable=False), reference=FALLBACK_REF)
         assert verdict.score is None
         assert any("score" in n.lower() for n in verdict.notices)
 
@@ -122,7 +125,7 @@ class TestSummaryAndMessages:
             "elbow_angle": _metric("elbow_angle", 112.0),
             "trunk_lean": _metric("trunk_lean", 12.0, phase="crouch"),
         }
-        verdict = evaluate(metrics, _confidences(metrics.keys()))
+        verdict = evaluate(metrics, _confidences(metrics.keys()), reference=FALLBACK_REF)
         text = summary_text(verdict, phases_times={"release": 1.2})
         assert "Score global" in text
         assert "release à 1.20 s" in text

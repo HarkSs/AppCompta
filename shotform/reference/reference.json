@@ -1,0 +1,1329 @@
+{
+  "type": "pro",
+  "description": "Référentiel construit à partir de clips de shooters d'élite.",
+  "excluded_metrics": [
+    "crouch_to_release_time"
+  ],
+  "clips": [
+    {
+      "clip": "f423df14-Stephen_Curry_S_000.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "profil",
+      "metrics_used": [
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "2 tirs détectés dans le clip : seul le premier est analysé.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_001.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "face",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "3 tirs détectés dans le clip : seul le premier est analysé.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Fin de clip trop tôt : atterrissage non observé.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_002.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "face",
+      "metrics_used": [
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "3 tirs détectés dans le clip : seul le premier est analysé.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_003.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "knee_flexion_shooting",
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_opposite",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "3 tirs détectés dans le clip : seul le premier est analysé.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Métriques incertaines exclues du score : knee_flexion_opposite, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_004.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Détection perdue pendant 1.7 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_005.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Détection perdue pendant 0.7 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "2 tirs détectés dans le clip : seul le premier est analysé.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_006.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "profil",
+      "metrics_used": [
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 0.7 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_007.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "4 tirs détectés dans le clip : seul le premier est analysé.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_008.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "elbow_lateral_offset",
+        "release_height"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "body_alignment",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Détection perdue pendant 0.8 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "2 tirs détectés dans le clip : seul le premier est analysé.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, body_alignment, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_009.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "face",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 0.9 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "5 tirs détectés dans le clip : seul le premier est analysé.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_010.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "face",
+      "metrics_used": [
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "2 tirs détectés dans le clip : seul le premier est analysé.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_011.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "face",
+      "metrics_used": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "body_alignment"
+      ],
+      "metrics_skipped": [
+        "elbow_angle",
+        "forearm_elevation",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Métriques incertaines exclues du score : elbow_angle, forearm_elevation, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_012.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height"
+      ],
+      "metrics_skipped": [
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Métriques incertaines exclues du score : jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_013.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "2 tirs détectés dans le clip : seul le premier est analysé.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_014.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "elbow_lateral_offset",
+        "release_height"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "body_alignment",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, body_alignment, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_015.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "elbow_angle",
+        "forearm_elevation",
+        "elbow_lateral_offset",
+        "release_height"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "body_alignment",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, body_alignment, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_016.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Détection perdue pendant 1.3 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_017.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "profil",
+      "metrics_used": [
+        "knee_flexion_opposite",
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 0.5 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "2 tirs détectés dans le clip : seul le premier est analysé.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_018.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 0.6 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "10 tirs détectés dans le clip : seul le premier est analysé.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_019.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "2 tirs détectés dans le clip : seul le premier est analysé.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_020.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "elbow_lateral_offset",
+        "release_height"
+      ],
+      "metrics_skipped": [
+        "body_alignment",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 1.3 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Fin de clip trop tôt : atterrissage non observé.",
+        "Métriques incertaines exclues du score : body_alignment, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_021.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "profil",
+      "metrics_used": [
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_022.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "profil",
+      "metrics_used": [
+        "knee_flexion_opposite",
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_023.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "face",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 1.1 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_024.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "face",
+      "metrics_used": [
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "4 tirs détectés dans le clip : seul le premier est analysé.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_025.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "profil",
+      "metrics_used": [
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_026.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "profil",
+      "metrics_used": [
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "elbow_lateral_offset",
+        "release_height"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "body_alignment",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 0.7 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, body_alignment, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_027.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "face",
+      "metrics_used": [
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "2 tirs détectés dans le clip : seul le premier est analysé.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_028.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "face",
+      "metrics_used": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height"
+      ],
+      "metrics_skipped": [
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Détection perdue pendant 0.7 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Métriques incertaines exclues du score : jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_029.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "trois-quarts",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Détection perdue pendant 0.9 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Fin de clip trop tôt : atterrissage non observé.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_030.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Fin de clip trop tôt : atterrissage non observé.",
+        "Métriques incertaines exclues du score : elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_031.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 0.5 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Fin de clip trop tôt : atterrissage non observé.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_032.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_033.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "2 tirs détectés dans le clip : seul le premier est analysé.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "f423df14-Stephen_Curry_S_034.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "face",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 1.4 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_000.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "face",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Détection perdue pendant 0.6 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "2 tirs détectés dans le clip : seul le premier est analysé.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_001.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "elbow_lateral_offset",
+        "release_height"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "body_alignment",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 1.1 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "6 tirs détectés dans le clip : seul le premier est analysé.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, body_alignment, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_002.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 1.3 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "6 tirs détectés dans le clip : seul le premier est analysé.",
+        "Fin de clip trop tôt : atterrissage non observé.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_003.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "body_alignment"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "elbow_angle",
+        "forearm_elevation",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 0.7 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, elbow_angle, forearm_elevation, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_004.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "3 tirs détectés dans le clip : seul le premier est analysé.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_005.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Détection perdue pendant 0.9 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Fin de clip trop tôt : atterrissage non observé.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_006.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_007.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "face",
+      "metrics_used": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "body_alignment",
+        "jump_symmetry"
+      ],
+      "metrics_skipped": [
+        "elbow_angle",
+        "forearm_elevation",
+        "elbow_lateral_offset",
+        "release_height"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "3 tirs détectés dans le clip : seul le premier est analysé.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Métriques incertaines exclues du score : elbow_angle, forearm_elevation, elbow_lateral_offset, release_height, crouch_to_release_time"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_008.mp4",
+      "status": "ok",
+      "shooting_side": "left",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "body_alignment"
+      ],
+      "metrics_skipped": [
+        "elbow_angle",
+        "forearm_elevation",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> left.",
+        "12 tirs détectés dans le clip : seul le premier est analysé.",
+        "Métriques incertaines exclues du score : elbow_angle, forearm_elevation, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_009.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "dos",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Le tireur est filmé de dos : analyse peu fiable.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_010.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "trois-quarts",
+      "metrics_used": [],
+      "metrics_skipped": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Détection perdue pendant 1.7 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "Fin de clip trop tôt : atterrissage non observé.",
+        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_011.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "face",
+      "metrics_used": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Détection perdue pendant 0.5 s : les mesures autour de ce trou sont incertaines.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "3 tirs détectés dans le clip : seul le premier est analysé.",
+        "Métriques incertaines exclues du score : elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_012.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "profil",
+      "metrics_used": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean"
+      ],
+      "metrics_skipped": [
+        "elbow_angle",
+        "forearm_elevation",
+        "body_alignment",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "7 tirs détectés dans le clip : seul le premier est analysé.",
+        "Saut très faible ou absent : atterrissage approximatif.",
+        "Métriques incertaines exclues du score : elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_013.mp4",
+      "status": "ok",
+      "shooting_side": "right",
+      "orientation": "trois-quarts",
+      "metrics_used": [
+        "knee_flexion_shooting",
+        "knee_flexion_opposite",
+        "trunk_lean",
+        "body_alignment"
+      ],
+      "metrics_skipped": [
+        "elbow_angle",
+        "forearm_elevation",
+        "elbow_lateral_offset",
+        "release_height",
+        "jump_symmetry"
+      ],
+      "warnings": [
+        "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
+        "Côté de tir non fourni : détection automatique -> right.",
+        "10 tirs détectés dans le clip : seul le premier est analysé.",
+        "Métriques incertaines exclues du score : elbow_angle, forearm_elevation, elbow_lateral_offset, release_height, crouch_to_release_time, jump_symmetry"
+      ]
+    },
+    {
+      "clip": "fbf46cbf-Stephen_Curry_S_014.mp4",
+      "status": "erreur",
+      "error": "All-NaN slice encountered"
+    }
+  ],
+  "metrics": {
+    "knee_flexion_shooting": {
+      "median": 108.08,
+      "p10": 74.852,
+      "p90": 122.965,
+      "n": 11,
+      "reliable": true,
+      "unit": "°"
+    },
+    "knee_flexion_opposite": {
+      "median": 105.771,
+      "p10": 68.252,
+      "p90": 138.007,
+      "n": 14,
+      "reliable": true,
+      "unit": "°"
+    },
+    "trunk_lean": {
+      "median": 29.326,
+      "p10": 10.735,
+      "p90": 75.426,
+      "n": 28,
+      "reliable": true,
+      "unit": "°"
+    },
+    "elbow_angle": {
+      "median": 118.519,
+      "p10": 96.278,
+      "p90": 156.922,
+      "n": 11,
+      "reliable": true,
+      "unit": "°"
+    },
+    "forearm_elevation": {
+      "median": 64.801,
+      "p10": -53.936,
+      "p90": 80.01,
+      "n": 11,
+      "reliable": true,
+      "unit": "°"
+    },
+    "body_alignment": {
+      "median": 159.469,
+      "p10": 114.581,
+      "p90": 174.457,
+      "n": 10,
+      "reliable": true,
+      "unit": "°"
+    },
+    "elbow_lateral_offset": {
+      "median": 17.079,
+      "p10": 4.134,
+      "p90": 28.608,
+      "n": 11,
+      "reliable": true,
+      "unit": "°"
+    },
+    "release_height": {
+      "median": 0.18,
+      "p10": -1.169,
+      "p90": 0.527,
+      "n": 11,
+      "reliable": true,
+      "unit": "×tronc"
+    },
+    "crouch_to_release_time": {
+      "median": null,
+      "p10": null,
+      "p90": null,
+      "n": 0,
+      "reliable": false,
+      "unit": "s"
+    },
+    "jump_symmetry": {
+      "median": 0.353,
+      "p10": 0.125,
+      "p90": 0.58,
+      "n": 2,
+      "reliable": false,
+      "unit": "×tronc"
+    }
+  }
+}

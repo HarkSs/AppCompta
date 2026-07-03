@@ -19,6 +19,25 @@ VIDEO_EXTENSIONS = {".mp4", ".mov", ".avi", ".mkv", ".m4v"}
 MIN_SAMPLES = 5  # en dessous, la plage est marquée non fiable
 
 
+def shot_plausibility_issues(analysis) -> list[str]:
+    """Vérifications de vraisemblance d'un tir détecté.
+
+    Sur des clips tout-venant (compilations découpées automatiquement), la
+    détection de release peut accrocher un dribble ou une passe. Un vrai tir
+    en suspension a le poignet au-dessus de la tête et l'avant-bras orienté
+    vers le haut à la release : sinon, le clip n'alimente pas le référentiel.
+    """
+    issues: list[str] = []
+    metrics = analysis.metrics
+    rh = metrics["release_height"].value
+    if np.isfinite(rh) and rh < 0.0:
+        issues.append("poignet sous le niveau de la tête à la release")
+    fe = metrics["forearm_elevation"].value
+    if np.isfinite(fe) and fe < 0.0:
+        issues.append("avant-bras orienté vers le bas à la release")
+    return issues
+
+
 def aggregate_samples(samples: dict[str, list[float]], units: dict[str, str]) -> dict:
     """Agrège les mesures par métrique : médiane, [p10, p90], n, fiabilité."""
     metrics = {}
@@ -88,10 +107,11 @@ def build_reference(
             clip_reports.append({"clip": clip.name, "status": "erreur", "error": str(exc)})
             continue
 
+        implausible = shot_plausibility_issues(analysis)
         used, skipped = [], []
         for name, metric in analysis.metrics.items():
             units[name] = metric.unit
-            if name in exclude:
+            if name in exclude or implausible:
                 continue
             conf = analysis.quality.per_metric[name]
             if conf.reliable and np.isfinite(metric.value):
@@ -101,14 +121,17 @@ def build_reference(
                 skipped.append(name)
         clip_reports.append({
             "clip": clip.name,
-            "status": "ok",
+            "status": "tir non plausible" if implausible else "ok",
+            "plausibility_issues": implausible,
             "shooting_side": analysis.shooting_side,
             "orientation": analysis.quality.orientation,
             "metrics_used": used,
             "metrics_skipped": skipped,
             "warnings": analysis.warnings,
         })
-        if skipped:
+        if implausible:
+            print(f"  clip écarté (tir non plausible) : {' ; '.join(implausible)}")
+        elif skipped:
             print(f"  métriques écartées (confiance basse) : {', '.join(skipped)}")
 
         if review:
