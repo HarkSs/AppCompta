@@ -1439,8 +1439,7 @@
       "warnings": [
         "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
         "Côté de tir non fourni : détection automatique -> right.",
-        "Saut très faible ou absent : atterrissage approximatif.",
-        "Métriques incertaines exclues du score : elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time"
+        "Métriques incertaines exclues du score : knee_flexion_opposite, elbow_angle, forearm_elevation, body_alignment, elbow_lateral_offset, release_height, crouch_to_release_time"
       ]
     },
     {
@@ -1517,7 +1516,7 @@
       "warnings": [
         "Plusieurs personnes détectées à l'image : seule la personne principale a été analysée. Vérifiez le cadrage.",
         "Côté de tir non fourni : détection automatique -> right.",
-        "Métriques incertaines exclues du score : knee_flexion_shooting, knee_flexion_opposite, trunk_lean, jump_symmetry"
+        "Métriques incertaines exclues du score : knee_flexion_shooting, jump_symmetry"
       ]
     },
     {

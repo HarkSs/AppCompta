@@ -20,6 +20,7 @@ import numpy as np
 from .. import landmarks as lm
 from .angles import angle_deg_series
 from .extractor import PoseSequence
+from .smoothing import savgol_filter
 
 
 @dataclass
@@ -232,16 +233,40 @@ def _normalize(y: np.ndarray) -> np.ndarray:
 
 
 def detect_shooting_side(seq: PoseSequence) -> str:
-    """Détection automatique du côté de tir : bras le plus haut à la release.
+    """Détection automatique du côté de tir : bras le plus haut ET le plus
+    tendu à l'apex du tir.
 
-    Heuristique : on compare la hauteur image maximale atteinte par chaque
-    poignet, rapportée à la hauteur des épaules (le poignet du bras de tir
-    monte nettement plus haut).
+    On vote dans une fenêtre de ±0.15 s autour de l'apex (maximum du plus
+    haut des deux poignets) : le bras de tir y est à la fois plus haut que la
+    main guide et en extension (coude ouvert), alors que la main guide reste
+    fléchie. Moyenner sur une fenêtre rend le vote robuste à une frame
+    bruitée — un max global sur tout le clip ne l'est pas.
     """
     heights = seq.image_heights()
-    shoulder = np.nanmean(
+    lw = heights[:, lm.LEFT_WRIST]
+    rw = heights[:, lm.RIGHT_WRIST]
+    combined = np.fmax(lw, rw)
+    if np.all(np.isnan(combined)):
+        return "right"
+    # Lissage avant argmax : une frame bruitée ne doit pas devenir l'apex.
+    smooth_win = max(5, int(round(0.25 * seq.fps)) | 1)
+    combined = savgol_filter(combined, smooth_win)
+    apex = int(np.nanargmax(combined))
+    half = max(1, int(round(0.15 * seq.fps)))
+    sl = slice(max(0, apex - half), min(len(seq), apex + half + 1))
+
+    # Écart de hauteur des poignets, normalisé par la taille du tronc à l'image.
+    torso = np.nanmean(np.abs(
         (heights[:, lm.LEFT_SHOULDER] + heights[:, lm.RIGHT_SHOULDER]) / 2
-    )
-    left = np.nanmax(heights[:, lm.LEFT_WRIST]) - shoulder
-    right = np.nanmax(heights[:, lm.RIGHT_WRIST]) - shoulder
-    return "right" if right >= left else "left"
+        - (heights[:, lm.LEFT_HIP] + heights[:, lm.RIGHT_HIP]) / 2
+    ))
+    torso = torso if np.isfinite(torso) and torso > 1e-9 else 1.0
+    height_vote = float(np.nanmean(rw[sl] - lw[sl])) / torso
+
+    w = seq.world
+    ext_l = angle_deg_series(w[sl, lm.LEFT_SHOULDER], w[sl, lm.LEFT_ELBOW], w[sl, lm.LEFT_WRIST])
+    ext_r = angle_deg_series(w[sl, lm.RIGHT_SHOULDER], w[sl, lm.RIGHT_ELBOW], w[sl, lm.RIGHT_WRIST])
+    ext_diff = np.nanmean(ext_r) - np.nanmean(ext_l)
+    extension_vote = float(ext_diff) / 90.0 if np.isfinite(ext_diff) else 0.0
+
+    return "right" if height_vote + extension_vote >= 0 else "left"

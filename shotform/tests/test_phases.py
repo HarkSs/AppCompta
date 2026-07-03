@@ -116,3 +116,12 @@ class TestOnFullSequence:
     def test_shooting_side_auto_detection(self, shot_sequence):
         seq, _ = shot_sequence
         assert detect_shooting_side(seq) == "right"
+
+    def test_shooting_side_robust_to_noise_spike(self, shot_sequence):
+        # Une frame bruitée où le poignet GAUCHE dépasse le max du droit,
+        # loin de l'apex, ne doit pas faire basculer la détection.
+        seq, truth = shot_sequence
+        import shotform.landmarks as lm
+        spike = truth["release"] - 30  # 1 s avant la release
+        seq.image[spike, lm.LEFT_WRIST, 1] = seq.image[truth["release"], lm.RIGHT_WRIST, 1] - 0.05
+        assert detect_shooting_side(seq) == "right"
