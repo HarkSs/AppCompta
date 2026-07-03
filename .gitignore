@@ -6,3 +6,8 @@ build/
 *.spec
 logs/app.log
 Documents/
+
+# ShotForm
+shotform/models/*.task
+report/
+demo_report/

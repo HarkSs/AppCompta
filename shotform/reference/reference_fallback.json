@@ -1,0 +1,16 @@
+{
+  "type": "fallback",
+  "description": "Plages issues de repères de coaching classiques (littérature shooting / consensus entraîneurs), PAS de mesures sur clips pros. À remplacer par reference.json construit avec `python -m shotform build-reference pro_clips/`.",
+  "metrics": {
+    "knee_flexion_shooting": {"median": 125.0, "p10": 110.0, "p90": 140.0, "n": 0, "reliable": true, "unit": "°"},
+    "knee_flexion_opposite": {"median": 125.0, "p10": 110.0, "p90": 140.0, "n": 0, "reliable": true, "unit": "°"},
+    "trunk_lean": {"median": 12.0, "p10": 5.0, "p90": 20.0, "n": 0, "reliable": true, "unit": "°"},
+    "elbow_angle": {"median": 93.0, "p10": 85.0, "p90": 100.0, "n": 0, "reliable": true, "unit": "°"},
+    "forearm_elevation": {"median": 60.0, "p10": 45.0, "p90": 75.0, "n": 0, "reliable": true, "unit": "°"},
+    "body_alignment": {"median": 172.0, "p10": 160.0, "p90": 180.0, "n": 0, "reliable": true, "unit": "°"},
+    "elbow_lateral_offset": {"median": 6.0, "p10": 0.0, "p90": 12.0, "n": 0, "reliable": true, "unit": "°"},
+    "release_height": {"median": 0.45, "p10": 0.2, "p90": 0.8, "n": 0, "reliable": true, "unit": "×tronc"},
+    "crouch_to_release_time": {"median": 0.65, "p10": 0.45, "p90": 0.9, "n": 0, "reliable": true, "unit": "s"},
+    "jump_symmetry": {"median": 0.03, "p10": 0.0, "p90": 0.1, "n": 0, "reliable": true, "unit": "×tronc"}
+  }
+}
