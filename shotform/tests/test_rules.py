@@ -111,8 +111,24 @@ class TestEvaluate:
         assert verdict.score is None
         assert any("score" in n.lower() for n in verdict.notices)
 
-    def test_custom_reference_missing_metric(self):
-        ref = {"type": "pro", "metrics": {}}
+    def test_pro_reference_falls_back_per_metric(self):
+        # Référentiel pro sans plage fiable pour le coude -> plage de repli
+        # utilisée pour cette métrique, et signalée dans le message.
+        ref = {"type": "pro", "metrics": {
+            "elbow_angle": {"p10": None, "p90": None, "median": None,
+                            "n": 1, "reliable": False, "unit": "°"},
+        }}
+        metrics = {"elbow_angle": _metric("elbow_angle", 93.0)}
+        verdict = evaluate(metrics, _confidences(["elbow_angle"]), reference=ref)
+        item = verdict.items[0]
+        assert item.status == "bon"  # 93° dans la plage de repli 85-100
+        assert item.reference["source"] == "fallback"
+        assert "plage de repli" in item.message
+        assert verdict.score == 100.0
+
+    def test_fallback_reference_missing_metric(self):
+        # Référentiel de repli lui-même sans la métrique -> sans_reference.
+        ref = {"type": "fallback", "metrics": {}}
         metrics = {"elbow_angle": _metric("elbow_angle", 93.0)}
         verdict = evaluate(metrics, _confidences(["elbow_angle"]), reference=ref)
         assert verdict.items[0].status == "sans_reference"

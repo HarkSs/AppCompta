@@ -107,10 +107,21 @@ def evaluate(
     quality_per_metric: dict,
     reference: dict | None = None,
 ) -> Verdict:
-    """Compare chaque métrique fiable au référentiel et calcule le score global."""
+    """Compare chaque métrique fiable au référentiel et calcule le score global.
+
+    Hybride par métrique : si le référentiel principal n'a pas de plage
+    fiable pour une métrique (moins de 5 échantillons exploitables), la plage
+    de repli est utilisée pour cette métrique et signalée « plage de repli »
+    dans le message — plutôt que de laisser la métrique sans verdict.
+    """
     ref = reference if reference is not None else load_reference()
     ref_type = ref.get("type", "pro")
     ref_metrics = ref.get("metrics", {})
+    fallback_metrics: dict = {}
+    if ref_type != "fallback" and FALLBACK_PATH.is_file():
+        fallback_metrics = json.loads(
+            FALLBACK_PATH.read_text(encoding="utf-8")
+        ).get("metrics", {})
 
     items: list[MetricVerdict] = []
     excluded: list[str] = []
@@ -136,7 +147,11 @@ def evaluate(
             continue
 
         ref_m = ref_metrics.get(name)
+        ref_source = ref_type
         if not ref_m or not ref_m.get("reliable", True):
+            ref_m = fallback_metrics.get(name)
+            ref_source = "fallback"
+        if not ref_m or not ref_m.get("reliable", True) or ref_m.get("p10") is None:
             items.append(MetricVerdict(
                 metric=name, label=m.label, value=m.value, unit=m.unit,
                 status="sans_reference", score=None, reference=ref_m,
@@ -157,11 +172,14 @@ def evaluate(
             msg = messages.BORDERLINE_MESSAGE.format(label=m.label, value=val_s, lo=lo_s, hi=hi_s)
         else:
             msg = messages.advice_for(name, direction, val_s, lo_s, hi_s)
+        if ref_source == "fallback" and ref_type != "fallback":
+            msg += " (plage de repli, pas encore assez de mesures pros)"
 
         items.append(MetricVerdict(
             metric=name, label=m.label, value=round(m.value, 2), unit=m.unit,
             status=status, score=score,
-            reference={"p10": lo, "p90": hi, "median": ref_m.get("median"), "n": ref_m.get("n")},
+            reference={"p10": lo, "p90": hi, "median": ref_m.get("median"),
+                       "n": ref_m.get("n"), "source": ref_source},
             deviation=round(deviation, 2), message=msg,
         ))
         w = WEIGHTS.get(name, 1.0)
